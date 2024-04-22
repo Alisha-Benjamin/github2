@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Sphere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light grey background */
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: #8A1538; /* Darker pink for better contrast */
+            color: white; /* This should meet 7:1 contrast ratio */
+            text-align: center;
+            padding: 10px 0;
+        }
+        .footer {
+            background: #004482; /* Dark blue for better contrast */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+        }
+        .photo {
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .photo img {
+            width: 100%;
+            height: auto;
+        }
+        .like-button {
+            color: #333; /* Darker color for better contrast */
+            cursor: pointer;
+        }
+        .like-button.liked {
+            color: red; /* Ensure red has good contrast against background */
+        }
+        .comments {
+            margin-top: 10px;
+        }
+        a {
+            color: #add8e6; /* Light blue link for higher contrast on dark background */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Social Sphere</h1>
+    </div>
+
+    <div class="container">
+        <div class="photo">
+            <img src="https://source.unsplash.com/random/800x600" alt="Random Photo">
+            <div>
+                <span class="like-button">❤</span>
+                <span class="like-count">0</span> likes
+            </div>
+            <div class="comments">
+                <div><strong>User1:</strong> Great photo!</div>
+                <div><strong>User2:</strong> Love this!</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2024 Social Sphere
+        <a href="https://twitter.com">Twitter</a>
+        <a href="https://instagram.com">Instagram</a>
+    </div>
+
+    <script>
+        document.querySelectorAll('.like-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('liked');
+                let likes = parseInt(this.nextElementSibling.textContent);
+                this.nextElementSibling.textContent = this.classList.contains('liked') ? likes + 1 : likes - 1;
+            });
+        });
+    </script>
+</body>
+</html>
